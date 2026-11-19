@@ -211,13 +211,17 @@ def draw_note_card(img):
     def text(x, y, s, fnt, fill=BLACK, anchor="la"):
         d.text((x, y), s, font=fnt, fill=fill, anchor=anchor)
 
+    # Every line BOLD and short, per the design consult: at the judge's
+    # 480x480 view, regular-weight handwriting blurs to mush, so the note
+    # uses the largest, darkest lettering in the scene after the caption.
     text(280, 16, "DOCTOR'S NOTE", bold(52), MAGENTA, "ma")
-    text(30, 104, "Patient: a loyal GTA fan", regular(37))
-    text(30, 158, "Diagnosis:", bold(40))
-    text(30, 204, "LEONIDA FEVER", bold(56), (200, 30, 40))
-    text(30, 280, "Prescription: 2 weeks in", regular(36))
-    text(30, 328, "Vice City. No work. No emails.", regular(36))
-    text(502, 384, "— Dr. Ghost", italic(38), (90, 90, 90), "ra")
+    text(30, 102, "Patient: a loyal GTA fan", bold(36))
+    text(30, 154, "Diagnosis:", bold(40))
+    text(30, 200, "LEONIDA FEVER", bold(58), (200, 30, 40))
+    text(30, 276, "Prescription:", bold(38))
+    text(30, 322, "2 weeks in Vice City.", bold(40))
+    text(30, 364, "No work. No emails.", bold(40))
+    text(502, 404, "— Dr. Ghost", italic(30), (90, 90, 90), "ra")
 
     layer = layer.rotate(2.5, expand=True, resample=Image.BICUBIC)
     img.paste(layer, (470, 552), layer)
